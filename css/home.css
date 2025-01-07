@@ -1,0 +1,178 @@
+/*Hover*/
+a {
+    color: black;
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease, transform 0.3s ease; /* Adds smooth transition for color and scale */
+}
+
+/* Hover effect for <a> tags */
+a:hover {
+    color: #ff6347; /* Changes color to tomato */
+    transform: scale(1.1); /* Slightly increases the size on hover */
+}
+nav div a:last-child:hover {
+    border: 2px solid #ff6347;
+    transform: scale(1.1); 
+}
+
+#skills h2{
+    background-color: white;
+    width: 9em;
+    margin-top: -17px;
+    margin-left: 25px;
+}
+#skills .about h2{
+    width: 5.5em;
+}
+
+#portfolio h2{
+    background-color: white;
+    width: 5em;
+    margin-top: -27px;
+    margin-left: 25px;
+}
+
+header{
+    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(40%,60%);
+    grid-template-areas:
+    "text eye";
+}
+header .text{
+    grid-area: text;
+    font-size: 75px;
+    line-height: 65px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+header .text span{
+    font-size: 50px;
+    font-weight: normal;
+}
+/*eyeball*/
+header #eye{
+    grid-area: eye;
+    height: 550px;
+    background-color: black;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header #eye img{
+    width: 25em;
+}
+/*socket*/
+header #socket img{
+    position: absolute;
+    width: 7.5em;
+    top: 20.5em;
+    right: 12em;
+}
+
+#skills{
+    margin: 45px 25px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas:
+    "about ."
+    ". skill";
+}
+#skills div{
+    border: 2px solid black;
+}
+#skills div p, ul{
+    padding: 30px 25px;
+    font-size: 25px;
+}
+ul{
+    list-style-type: none;
+    text-align: right;
+}
+
+#portfolio{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 2px solid black;
+}
+#portfolio .box{
+    margin: 13px 25px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: 
+    "box1 ."
+    "box1 box2"
+    "box1 box3"
+    "box1 box4"
+    "box1 .";
+
+    grid-column-gap: 25px;
+    grid-row-gap: 20px;
+}
+
+#box1{
+    grid-area: box1;
+}
+#box1 img{
+    width: 30em;
+}
+#box2{
+    grid-area: box2;
+    font-size: 20px;
+}
+#box3{
+    grid-area: box3;
+    font-size: 25px;
+}
+#box4{
+    grid-area: box4;
+    font-size: 20px;
+    display: flex;
+}
+#box4 p{
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+#box4 p:not(:last-child){
+    margin-right: 15px;
+}
+
+@media(max-width:1024px){
+    /*socket*/
+    header #socket img{
+        position: absolute;
+        right: 10em;
+    }
+}
+
+@media(max-width:768px){
+    header .text {
+        font-size: 50px;
+    }
+    header .text span{
+        line-height: 5px;
+    }
+    /*socket*/
+    header #socket img{
+        position: absolute;
+        right: 9em;
+    }
+
+    #portfolio .box{
+        margin: 13px 25px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: 
+        "box1"
+        "box2"
+        "box3"
+        "box4";
+    }
+  }

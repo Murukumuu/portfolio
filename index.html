@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/footer.css">
+<body>
+    <nav>
+        <a href="index.html" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SITI</a>
+        <div>
+            <a href="mailto:khadussin@gmail.com?subject=Hi Siti, I'd liked to hire you!">Contact Me</a>
+        </div>
+    </nav>
+    <header>
+        <div class="text">
+            <h2>Hi. I'm Siti.<br><span>An Aspiring Cloud Engineer</span></h2>
+        </div>
+        <div id="eye">
+            <img src="images/Asset 1.png" id="anchor" alt="eye">
+            <div id="socket">
+                <img src="images/Asset 2.png" class="eyeball">
+            </div>
+    </header>
+    <br>
+    <section id="skills">
+        <div class="about" style="grid-area: about;">
+            <h2><span>1.</span> About Me</h2>
+            <p>I enjoy exploring and learning about technology, especially things such like: cloud computing and programming. Currently, I'm working on an interactive campus map for NYP using HTML, JavaScript, and AWS Cloud to make and host the website.</p>
+        </div>
+        <div class="skill" style="grid-area: skill;">
+            <h2><span>2.</span> Languages I speak</h2>
+            <ul>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>JavaScript</li>
+                <li>Word</li>
+                <li>Excel</li>
+            </ul>
+        </div>
+    </section>
+    <section id="portfolio">
+        <h2><span>3.</span> Portfolio</h2>
+        <section class="box">
+            <div id="box1">
+                <img src="images/Hotel.gif" alt="Hotel Gif">
+            </div>
+            <div id="box2"><h3>Website Development for Hotel Reservation</h3></div>
+            <div id="box3">
+                <p>Created a hotel reservation website using MySQL to manage the bookings(backend), whilst using HTML and JavaScript a smooth (front-end) experience.</p>
+            </div>
+            <div id="box4">
+                <p>HTML</p>
+                <p>JavaScript</p>
+                <p>MySQL</p>
+                <p>VPC</p>
+                <p>EC2</p>
+            </div>
+        </section>
+        <section class="box">
+            <div id="box1">
+                <img src="images/Map.gif" alt="NYPMap Gif">
+            </div>
+            <div id="box2"><h3>Campus Map App</h3></div>
+            <div id="box3">
+                <p>Collaborating with team members to develop an interactive campus map using QGIS to digitize the map, key points to add points of interest, and cloud technologies to host the website.</p>
+            </div>
+            <div id="box4">
+                <p>QGIS</p>
+                <p>HTML</p>
+            </div>
+        </section>
+    </section>
+    <footer>© Designed & Created By Siti Khadijah</footer>
+</body>
+<script>
+    document.addEventListener('mousemove', (event) => {
+        console.log(event);
+
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        const eye = document.getElementById('anchor')
+        const rekt = eye.getBoundingClientRect();
+        const anchorX = rekt.left + rekt.width / 2;
+        const anchorY = rekt.top + rekt.height / 2;
+        
+        const angleDeg = angle(mouseX, mouseY,anchorX, anchorY);
+        console.log(angleDeg);
+
+        const pupil = document.querySelectorAll('.eyeball')
+        pupil.forEach(eyeball =>{
+            eyeball.style.transform = `rotate(${90 + angleDeg}deg)`;
+        })
+    })
+
+    function angle(cx, cy, ex, ey){
+        const dy = ey - cy;
+        const dx = ex - cx;
+        const rad = Math.atan2(dy, dx);
+        const deg = rad * 180 / Math.PI;
+        return deg;
+    }
+</script>
+</html>
